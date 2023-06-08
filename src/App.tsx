@@ -5,7 +5,7 @@ function App() {
   return (
     <div className="App min-h-screen bg-black">
       <TheHero/>
-      <section className='h-screen'>
+      <section className='min-h-screen'>
         <Routers />
       </section>
       <TheFooter/>

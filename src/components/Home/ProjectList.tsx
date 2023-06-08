@@ -1,22 +1,18 @@
 
 import { projectList } from "../../assets/constant/projectList"
+import ProjectCard from "./ProjectCard"
 function ProjectList() {
     return (
         <div>
-            個人專案成就
-            <ul>
+            <ul className="flex flex-col items-center">
                 {
                     projectList.map(project => {
                         return (
                             <li
+                            className="my-2"
                             key={project.title}
                             >
-                                <div>
-                                    {project.title}
-                                    <button
-                                    onClick={()=>window.open(project.demoUrl)}
-                                    >Demo</button>
-                                </div>
+                                <ProjectCard project={project}/>
                             </li>
                         )
                     })
