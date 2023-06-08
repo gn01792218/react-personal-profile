@@ -1,17 +1,28 @@
+import Experience from "../components/Home/Experience"
+import HomeNavigator from "../components/Home/HomeNavigator"
+import ProjectList from "../components/Home/ProjectList"
+import Skill from "../components/Home/Skill"
+import { HomeNav } from "../types/navigator"
 function Home() {
-    const [count, setCount] = useState(0)
+    const navs = ["Projects", "Skill", "Experience"]
+    const [active, setActive] = useState(HomeNav.PROJECTS)
+
+    const handleSetActive = (active:HomeNav)=>{
+        setActive(active)
+    }
     return (
         <div className='text-white'>
-            <header className="text-white">
-                <p>Hello Vite + React!</p>
-                <p>
-                    <button type="button" onClick={() => setCount((count) => count + 1)}>
-                        count is: {count}
-                    </button>
-                </p>
-                <p>
-                </p>
-            </header>
+            <HomeNavigator homeNavs={navs} handleActive={handleSetActive}/>
+            {(()=>{
+                switch(active){
+                    case HomeNav.PROJECTS:
+                        return (<ProjectList/>)
+                    case HomeNav.SKILL:
+                        return (<Skill/>)
+                    case HomeNav.EXPERIENCE:
+                        return (<Experience/>)
+                }
+            })()}
         </div>
     )
 }
