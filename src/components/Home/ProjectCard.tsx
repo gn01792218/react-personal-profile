@@ -11,9 +11,15 @@ function ProjectItem(props: Props) {
                 <p>{project.title}</p>
             </header>
             <section>
-                <div>
-                    <img className="" src={project.imgs[0]} alt="" />
-                </div>
+                {(() => {
+                    if (project.imgs) {
+                        return (
+                            <div>
+                                <img className="" src={project.imgs[0]} alt="" />
+                            </div>
+                        )
+                    }
+                })()}
             </section>
             <footer className="w-full flex justify-around">
                 <button
