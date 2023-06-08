@@ -1,10 +1,14 @@
 import Routers from './router/Routers'
-import TheHeader from './components/TheHeader'
+import TheHero from './components/TheHero'
+import TheFooter from './components/TheFooter'
 function App() {
   return (
-    <div className="App bg-black">
-      <TheHeader/>
-      <Routers />
+    <div className="App min-h-screen bg-black">
+      <TheHero/>
+      <section className='h-screen'>
+        <Routers />
+      </section>
+      <TheFooter/>
     </div>
   )
 }

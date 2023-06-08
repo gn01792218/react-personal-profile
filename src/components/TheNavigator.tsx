@@ -1,4 +1,4 @@
-function TheHeader() {
+function TheNavigator() {
     return (
         <div className='text-white'>
            <nav className="flex justify-center">
@@ -8,4 +8,4 @@ function TheHeader() {
         </div>
     )
 }
-export default TheHeader
+export default TheNavigator
