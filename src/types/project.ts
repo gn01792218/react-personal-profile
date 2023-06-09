@@ -13,9 +13,17 @@ export interface Project{
     UIFramework:string[],
     hintTags:string[]
 }
+
+export interface Check {
+    checked: boolean,
+    value: string,
+}
 export enum ProjectFilterTag{
-    VUE = "Vue",
+    VUE2 = "Vue2",
+    VUE3 = "Vue3",
     REACT = "React",
     TYPSCRIPT = "Typscript",
-    VITE = "Vite"
+    JAVA = "Java",
+    VITE = "Vite",
+    VUECLI = "Vue CLI"
 }

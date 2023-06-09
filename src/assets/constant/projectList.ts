@@ -5,13 +5,13 @@ export const projectList:Partial<Project>[] = [
         title:"急急如律令，任意速速簽",
         demoUrl:"https://gn01792218.github.io/f2e-react-sign-system/",
         imgs:["https://s3cdn.yourator.co/attachments/attachments/000/122/702/original/9c98c6a5f734ac1f4d7d9e0d5af4b696ad96701b.jpg"],
-        tags:["Vite","React.js","TailwindCss","Redux","React-router-dom"]
+        tags:["Vite","React","Typscript","TailwindCss","Redux","React-router-dom"]
     },
     {
         title:"自製元件集成網",
         demoUrl:"https://gn01792218.github.io/vue3-tailwind-component/#/",
         imgs:["https://s3cdn.yourator.co/attachments/attachments/000/111/359/original/b7dec1f0d5b749fd391d6b68ddb2537db7771c39.jpg"],
-        tags:["Vite","React.js","TailwindCss","Redux","React-router-dom"]
+        tags:["Vite","vue3","typscript","TailwindCss"]
     },
     {
         title:"TSZ大冒險旅遊資訊網",

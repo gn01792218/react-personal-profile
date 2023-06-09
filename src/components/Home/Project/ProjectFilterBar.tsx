@@ -1,41 +1,12 @@
-import { ProjectFilterTag } from "../../../types/project"
-interface Check {
-    checked: boolean,
-    value: string,
+import { Check } from "../../../types/project"
+interface Props {
+    allChecked:boolean,
+    checkGroup:Check[],
+    handleAllChecked:Function,
+    handleCheckGroupValue:Function
 }
-function ProjectFilterBar() {
-    //以下相當於onMount的寫法
-    useEffect(() => {
-        initCheckGroupFromEnum()
-    }, [])
-    const [allChecked, setAllChecked] = useState(true)
-    const [checkGroup, SetCheckGroup] = useState<Check[]>([])
-    function initCheckGroupFromEnum(){
-        const initCheckGroup = Object.values(ProjectFilterTag).map(value => {
-            return {
-                checked: true,
-                value
-            } as Check
-        })
-        SetCheckGroup(initCheckGroup)
-    }
-    function setAllCheckGroupCheckedValue(value:boolean){
-        const nextCheckGroup:Check[] = [...checkGroup]
-        nextCheckGroup.forEach(checkObj=>{
-            checkObj.checked = value
-        })
-        SetCheckGroup(nextCheckGroup)
-    }
-    function handleAllChecked(){
-        setAllChecked(!allChecked)
-        setAllCheckGroupCheckedValue(!allChecked)
-    }
-    function handleInputChange(checkIndex: number){
-        const nextCheckGroup = [...checkGroup]
-        nextCheckGroup[checkIndex].checked = !nextCheckGroup[checkIndex].checked
-        SetCheckGroup(nextCheckGroup)
-    }
-
+function ProjectFilterBar(props:Props) {
+    const { allChecked, checkGroup, handleAllChecked, handleCheckGroupValue } = props
     return (
         <div className="w-full h-[50px] flex justify-around border-2">
             <div>
@@ -46,12 +17,12 @@ function ProjectFilterBar() {
                         role="switch"
                         id="all"
                         checked={allChecked}
-                        onChange={handleAllChecked}
+                        onChange={()=>handleAllChecked()}
                     />
                     <label
                         className="inline-block pl-[0.15rem] hover:cursor-pointer"
                         htmlFor="all"
-                    >All</label>
+                    >列出所有專案</label>
                 </div>
             </div>
             {
@@ -65,7 +36,7 @@ function ProjectFilterBar() {
                                 id={checkObj.value}
                                 checked={checkObj.checked}
                                 value={checkObj.value}
-                                onChange={() => handleInputChange(index)}
+                                onChange={()=>handleCheckGroupValue(index)}
                             />
                             <label
                                 className="inline-block pl-[0.15rem] hover:cursor-pointer"
