@@ -13,3 +13,9 @@ export interface Project{
     UIFramework:string[],
     hintTags:string[]
 }
+export enum ProjectFilterTag{
+    VUE = "Vue",
+    REACT = "React",
+    TYPSCRIPT = "Typscript",
+    VITE = "Vite"
+}

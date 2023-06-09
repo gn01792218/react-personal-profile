@@ -1,5 +1,5 @@
 
-import { Project } from "../../types/project"
+import { Project } from "../../../types/project"
 interface Props {
     project: Partial<Project>
 }

@@ -17,3 +17,5 @@ export default defineConfig({
   ],
 })
 ```
+## 添加Project的filter選項
+只需要到Types資料夾下的project.ts檔案中，增加enum就可以囉~!
