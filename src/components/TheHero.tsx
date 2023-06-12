@@ -5,7 +5,7 @@ function TheHero() {
     const { getAssetsFileURL } = useImageAssets()
     return (
         <div className='relative w-full h-[500px] text-white flex flex-col items-center
-            after:absolute after:z-0 after:w-1/2 after:h-full after:right-0 after:bg-gradient-to-l after:from-gray-800
+            after:absolute after:z-0 after:w-1/2 after:h-full after:right-0 after:bg-gradient-to-bl after:from-gray-800
         '>
             <section className="z-10">
                 <TheNavigator />

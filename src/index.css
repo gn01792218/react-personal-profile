@@ -1,8 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-body{
-    @apply bg-slate-500;
+.app{
+    @apply bg-black;
 }
 .hero-title{
     -webkit-text-stroke-width:2px;

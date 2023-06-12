@@ -5,7 +5,7 @@ function Routers() {
     //路遊懶加載
     const About = lazy(()=>import('../views/About'))
     return (
-      <div className="App bg-black">
+      <div>
         <Suspense fallback={<div>Loading</div>}>
             <Routes>
                 <Route path="/" element={<Home/>}/>

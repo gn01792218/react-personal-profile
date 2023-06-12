@@ -1,6 +1,6 @@
 function About() {
     return (
-        <div className='text-white bg-black'>
+        <div className='text-white'>
             這是About
         </div>
     )
