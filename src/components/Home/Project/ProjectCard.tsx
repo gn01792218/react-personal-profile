@@ -7,7 +7,7 @@ interface Props {
 function ProjectItem(props: Props) {
     const { project, filterTags } = props
     return (
-        <div className="w-[475px] h-[350px] p-1 flex flex-col justify-around items-center border-2">
+        <div className="w-full sm:w-[450px] sm:h-[350px] p-1 flex flex-col justify-around items-center border-2">
             <header className="text-center">
                 <p>{project.title}</p>
                 <ul className="flex flex-wrap justify-between">
@@ -31,7 +31,7 @@ function ProjectItem(props: Props) {
                     if (project.imgs) {
                         return (
                             <div className="flex justify-center">
-                                <img className="w-[80%]" src={project.imgs[0]} alt="" />
+                                <img className="sm:w-[80%]" src={project.imgs[0]} alt="" />
                             </div>
                         )
                     }
