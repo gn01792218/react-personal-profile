@@ -1,13 +1,12 @@
 
-import { log } from "console"
 import { projectList } from "../../../assets/constant/projectList"
-import { ProjectFilterTag, Check } from "../../../types/project"
+import { ProjectFilterTag, FilterTag } from "../../../types/project"
 import ProjectCard from "./ProjectCard"
 import ProjectFilterBar from "./ProjectFilterBar"
 
 function ProjectList() {
     const [allChecked, setAllChecked] = useState(true)
-    const [checkGroup, SetCheckGroup] = useState<Check[]>([])
+    const [filterTags, SetFilterTags] = useState<FilterTag[]>([])
     
     //以下相當於onMount的寫法
     useEffect(() => {
@@ -19,44 +18,42 @@ function ProjectList() {
             return {
                 checked: true,
                 value
-            } as Check
+            } as FilterTag
         })
-        SetCheckGroup(initCheckGroup)
+        SetFilterTags(initCheckGroup)
     }
 
     function setAllCheckGroupCheckedValue(value:boolean){
-        const nextCheckGroup:Check[] = [...checkGroup]
+        const nextCheckGroup:FilterTag[] = [...filterTags]
         nextCheckGroup.forEach(checkObj=>{
             checkObj.checked = value
         })
-        SetCheckGroup(nextCheckGroup)
+        SetFilterTags(nextCheckGroup)
     }
 
     function handleAllChecked() {
-        console.log('allChecked')
         setAllChecked(!allChecked)
         setAllCheckGroupCheckedValue(!allChecked)
     }
 
     function handleCheckGroupValue(checkIndex: number) {
-        console.log(checkIndex)
-        const nextCheckGroup = [...checkGroup]
+        const nextCheckGroup = [...filterTags]
         nextCheckGroup[checkIndex].checked = !nextCheckGroup[checkIndex].checked
-        SetCheckGroup(nextCheckGroup)
+        SetFilterTags(nextCheckGroup)
     }
 
     return (
         <div>
             <ProjectFilterBar
                 allChecked={allChecked}
-                checkGroup={checkGroup}
+                filterTags={filterTags}
                 handleAllChecked={handleAllChecked}
                 handleCheckGroupValue={handleCheckGroupValue}
             />
             <ul className="flex flex-col items-center">
                 {
                     projectList.filter(project=>{
-                        const checkBoxTags = checkGroup.filter(checkObj=>checkObj.checked).map(checkObj=>checkObj.value.toLocaleLowerCase())
+                        const checkBoxTags = filterTags.filter(checkObj=>checkObj.checked).map(checkObj=>checkObj.value.toLocaleLowerCase())
                         return project.tags?.map(tag=>tag.toLocaleLowerCase()).some(tag=> checkBoxTags.includes(tag))
                     }).map(project => {
                         return (
@@ -64,7 +61,10 @@ function ProjectList() {
                                 className="my-2"
                                 key={project.title}
                             >
-                                <ProjectCard project={project} />
+                                <ProjectCard 
+                                project={project} 
+                                filterTags={filterTags}
+                                />
                             </li>
                         )
                     })

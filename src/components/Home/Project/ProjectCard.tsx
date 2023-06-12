@@ -1,14 +1,27 @@
 
-import { Project } from "../../../types/project"
+import { FilterTag, Project } from "../../../types/project"
 interface Props {
-    project: Partial<Project>
+    project: Partial<Project>,
+    filterTags:FilterTag[]
 }
 function ProjectItem(props: Props) {
-    const { project } = props
+    const { project, filterTags } = props
     return (
         <div className="w-[300px] min-h-[200px] p-1 flex flex-col justify-around items-center border-2">
             <header className="text-center">
                 <p>{project.title}</p>
+                <ul className="flex flex-wrap justify-between">
+                {
+                    project.tags?.map(tag=>{
+                        return (
+                            <li className={[
+                                "px-1 cursor-pointer",
+                                filterTags.some(item=>item.value.includes(tag))?"text-yellow-200":"text-gray-400"
+                            ].join(' ')}>{tag}</li>
+                        )
+                    })
+                }
+                </ul>
             </header>
             <section>
                 {(() => {

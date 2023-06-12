@@ -1,12 +1,12 @@
-import { Check } from "../../../types/project"
+import { FilterTag } from "../../../types/project"
 interface Props {
     allChecked:boolean,
-    checkGroup:Check[],
+    filterTags:FilterTag[],
     handleAllChecked:Function,
     handleCheckGroupValue:Function
 }
 function ProjectFilterBar(props:Props) {
-    const { allChecked, checkGroup, handleAllChecked, handleCheckGroupValue } = props
+    const { allChecked, filterTags, handleAllChecked, handleCheckGroupValue } = props
     return (
         <div className="w-full h-[50px] flex justify-around border-2">
             <div>
@@ -26,7 +26,7 @@ function ProjectFilterBar(props:Props) {
                 </div>
             </div>
             {
-                checkGroup.map((checkObj, index) => {
+                filterTags.map((checkObj, index) => {
                     return (
                         <div key={checkObj.value}>
                             <input

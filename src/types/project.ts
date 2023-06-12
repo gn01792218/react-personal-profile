@@ -14,7 +14,7 @@ export interface Project{
     hintTags:string[]
 }
 
-export interface Check {
+export interface FilterTag {
     checked: boolean,
     value: string,
 }
