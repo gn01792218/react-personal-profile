@@ -9,7 +9,7 @@ import App from './App'
 //react 18 用法
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 .render(
-    <BrowserRouter>
+    <BrowserRouter basename='/react-personal-profile/'>
         <Provider store={store}>
             <App />
         </Provider>
