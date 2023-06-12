@@ -7,7 +7,7 @@ interface Props {
 function ProjectItem(props: Props) {
     const { project, filterTags } = props
     return (
-        <div className="w-full sm:w-[450px] sm:h-[350px] p-1 flex flex-col justify-around items-center border-2">
+        <div className="w-full sm:w-[450px] sm:h-[375px] p-1 flex flex-col justify-around items-center border-2">
             <header className="text-center">
                 <p>{project.title}</p>
                 <ul className="flex flex-wrap justify-between">
