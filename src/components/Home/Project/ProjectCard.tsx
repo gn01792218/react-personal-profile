@@ -16,7 +16,10 @@ function ProjectItem(props: Props) {
                         return (
                             <li className={[
                                 "px-1 cursor-pointer",
-                                filterTags.some(item=>item.value.includes(tag))?"text-yellow-200":"text-gray-400"
+                                filterTags.map(filterTagItem=>{
+                                    filterTagItem.value.toLocaleLowerCase()
+                                    return filterTagItem
+                                }).some(filterTagItem=>filterTagItem.value.toLocaleLowerCase().includes(tag.toLocaleLowerCase()) && filterTagItem.checked)?"text-yellow-200":"text-gray-400"
                             ].join(' ')}>{tag}</li>
                         )
                     })
