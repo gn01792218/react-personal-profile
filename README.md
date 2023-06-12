@@ -1,4 +1,12 @@
 # react+ts+tailwindCss 樣板
+## 專案部署gh-page流程
+```
+npm run build
+git add dist -f
+git ci -m 'your commit'
+npm run deploy
+
+```
 ## 讓專案擁有自動import 功能
 ```javascript
 npm i -D unplugin-auto-import
