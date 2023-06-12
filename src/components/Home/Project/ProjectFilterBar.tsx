@@ -1,7 +1,7 @@
-import { AdvanceFilterTag } from "../../../types/project"
+import { FilterTag } from "../../../types/project"
 interface Props {
     allChecked:boolean,
-    filterTags:AdvanceFilterTag[],
+    filterTags:FilterTag[],
     handleAllChecked:Function,
     handleCheckGroupValue:Function
 }
