@@ -1,8 +1,8 @@
 
-import { FilterTag, Project } from "../../../types/project"
+import { AdvanceFilterTag, Project } from "../../../types/project"
 interface Props {
     project: Partial<Project>,
-    filterTags: FilterTag[]
+    filterTags: AdvanceFilterTag[]
 }
 function ProjectItem(props: Props) {
     const { project, filterTags } = props

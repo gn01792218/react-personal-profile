@@ -1,12 +1,12 @@
 
 import { projectList } from "../../../assets/constant/projectList"
-import { ProjectFilterTag, FilterTag } from "../../../types/project"
+import { ProjectFilterTag, AdvanceFilterTag } from "../../../types/project"
 import ProjectCard from "./ProjectCard"
-import ProjectFilterBar from "./ProjectFilterBar"
+import ProjectAdvanceFilterBar from "./ProjectAdvanceFilterBar"
 
 function ProjectList() {
     const [allChecked, setAllChecked] = useState(true)
-    const [filterTags, SetFilterTags] = useState<FilterTag[]>([])
+    const [advanceFilterTags, SetAdvanceFilterTags] = useState<AdvanceFilterTag[]>([])
     
     //以下相當於onMount的寫法
     useEffect(() => {
@@ -18,17 +18,17 @@ function ProjectList() {
             return {
                 checked: true,
                 value
-            } as FilterTag
+            } as AdvanceFilterTag
         })
-        SetFilterTags(initCheckGroup)
+        SetAdvanceFilterTags(initCheckGroup)
     }
 
     function setAllCheckGroupCheckedValue(value:boolean){
-        const nextCheckGroup:FilterTag[] = [...filterTags]
+        const nextCheckGroup:AdvanceFilterTag[] = [...advanceFilterTags]
         nextCheckGroup.forEach(checkObj=>{
             checkObj.checked = value
         })
-        SetFilterTags(nextCheckGroup)
+        SetAdvanceFilterTags(nextCheckGroup)
     }
 
     function handleAllChecked() {
@@ -37,23 +37,24 @@ function ProjectList() {
     }
 
     function handleCheckGroupValue(checkIndex: number) {
-        const nextCheckGroup = [...filterTags]
+        const nextCheckGroup = [...advanceFilterTags]
         nextCheckGroup[checkIndex].checked = !nextCheckGroup[checkIndex].checked
-        SetFilterTags(nextCheckGroup)
+        SetAdvanceFilterTags(nextCheckGroup)
     }
 
     return (
         <div>
-            <ProjectFilterBar
+            <ProjectAdvanceFilterBar
                 allChecked={allChecked}
-                filterTags={filterTags}
+                filterTags={advanceFilterTags}
                 handleAllChecked={handleAllChecked}
                 handleCheckGroupValue={handleCheckGroupValue}
             />
             <ul className="flex flex-wrap justify-center">
                 {
-                    projectList.filter(project=>{
-                        const checkBoxTags = filterTags.filter(checkObj=>checkObj.checked).map(checkObj=>checkObj.value.toLocaleLowerCase())
+                    projectList
+                    .filter(project=>{  //1.根據advanceFilterTages篩選
+                        const checkBoxTags = advanceFilterTags.filter(checkObj=>checkObj.checked).map(checkObj=>checkObj.value.toLocaleLowerCase())
                         return project.tags?.map(tag=>tag.toLocaleLowerCase()).some(tag=> checkBoxTags.includes(tag))
                     }).map(project => {
                         return (
@@ -63,11 +64,11 @@ function ProjectList() {
                             >
                                 <ProjectCard 
                                 project={project} 
-                                filterTags={filterTags}
+                                filterTags={advanceFilterTags}
                                 />
                             </li>
                         )
-                    })
+                    }).length?"":"搜尋不到任何項目"
                 }
             </ul>
         </div>
