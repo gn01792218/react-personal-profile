@@ -7,8 +7,21 @@ interface Props {
 }
 function ProjectFilterBar(props:Props) {
     const { allChecked, filterTags, handleAllChecked, handleCheckGroupValue } = props
+    const [isShowFilter, setIsShowFilter] = useState(false)
     return (
-        <div className="w-full flex flex-wrap justify-around items-center">
+        <div className="w-full flex">
+            <section className="w-[64px]">
+                <img className={[
+                    "cursor-pointer",
+                    isShowFilter?"opacity-100":"opacity-50"
+                ].join(" ")}
+                 src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAApUlEQVR4nO3YwQ3DIAxAUQ/gObIB2Yq5skRir9JN3EtVRVUPCBFat/9JPiJhGYyFCACk5kUPXzWeUfSQTPy8+UfIN4gq0RLvEli22/AQEqhUIKYeofSXuJWvur8ksDcvBgD0sKJ2br1W1CSTKY9fNE6jPdEzwQoJVCoQU4/QldJPsJa9jQLAuL/QdC3QszxC8eGfuOWqaZQENirwJ5f4Z9soAMhIdzSHp20ncDSUAAAAAElFTkSuQmCC"
+                onClick={()=>setIsShowFilter(!isShowFilter)}
+                >
+
+                </img>
+            </section>
+            <section className={isShowFilter?"block":"hidden"}>
             <div>
                 <div>
                     <input
@@ -46,6 +59,7 @@ function ProjectFilterBar(props:Props) {
                     )
                 })
             }
+            </section>
         </div>
     )
 }

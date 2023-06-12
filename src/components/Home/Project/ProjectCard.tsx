@@ -8,9 +8,9 @@ function ProjectItem(props: Props) {
     const { project, filterTags } = props
     return (
         <div className="w-full sm:w-[450px] sm:h-[400px] p-1 flex flex-col justify-around items-center border-2 rounded-3xl">
-            <header className="text-center">
+            <header className="flex flex-col items-center">
                 <p>{project.title}</p>
-                <ul className="flex flex-wrap justify-between">
+                <ul className="w-[80%] flex flex-wrap justify-between">
                     {
                         project.tags?.map(tag => {
                             return (
