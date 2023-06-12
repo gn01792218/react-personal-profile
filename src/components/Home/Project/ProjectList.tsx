@@ -50,7 +50,7 @@ function ProjectList() {
                 handleAllChecked={handleAllChecked}
                 handleCheckGroupValue={handleCheckGroupValue}
             />
-            <ul className="flex flex-col items-center">
+            <ul className="flex flex-wrap justify-center">
                 {
                     projectList.filter(project=>{
                         const checkBoxTags = filterTags.filter(checkObj=>checkObj.checked).map(checkObj=>checkObj.value.toLocaleLowerCase())
@@ -58,7 +58,7 @@ function ProjectList() {
                     }).map(project => {
                         return (
                             <li
-                                className="my-2"
+                                className="my-2 mx-2"
                                 key={project.title}
                             >
                                 <ProjectCard 
