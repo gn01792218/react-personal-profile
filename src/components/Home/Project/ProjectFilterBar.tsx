@@ -8,7 +8,7 @@ interface Props {
 function ProjectFilterBar(props:Props) {
     const { allChecked, filterTags, handleAllChecked, handleCheckGroupValue } = props
     return (
-        <div className="w-full h-[50px] flex justify-around border-2">
+        <div className="w-full flex flex-wrap justify-around items-center">
             <div>
                 <div>
                     <input
@@ -22,7 +22,7 @@ function ProjectFilterBar(props:Props) {
                     <label
                         className="inline-block pl-[0.15rem] hover:cursor-pointer"
                         htmlFor="all"
-                    >列出所有專案</label>
+                    >所有專案</label>
                 </div>
             </div>
             {
