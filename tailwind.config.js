@@ -5,6 +5,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      dropShadow:{
+        'hero':'-5px -5px 1px #535d5b',
+      },
       colors: {
         'primary': {
           DEFAULT: '#202a28',

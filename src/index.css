@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 .app{
-    @apply bg-black;
+    @apply bg-primary-900;
 }
 .hero-title{
     -webkit-text-stroke-width:2px;
