@@ -4,10 +4,33 @@
 .app{
     @apply bg-primary-900;
 }
+.hero-img{
+    animation-name: heroImg;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+}
+@keyframes heroImg {
+ from{
+    @apply opacity-25;
+ }to{
+    @apply drop-shadow-hero opacity-100;
+ } 
+}
 .hero-title{
     -webkit-text-stroke-width:2px;
     -webkit-text-stroke-color: black;
     text-shadow: 0px 5px black;
+    animation-name: heroTitle;
+    animation-duration: 0.8s;
+    animation-timing-function: ease-in-out;
+    @apply left-[-40%] top-[150px] sm:left-[-130px] sm:top-[200px];
 }
-
+@keyframes heroTitle {
+    from{
+        @apply opacity-0 left-0;
+    }to{
+        @apply opacity-100;
+    }
+}
 

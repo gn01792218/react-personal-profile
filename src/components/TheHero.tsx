@@ -11,8 +11,8 @@ function TheHero() {
                 <TheNavigator />
             </section>
            <div className="relative w-[150px] sm:w-[300px] before:absolute before:z-10 before:top-5 before:w-[200px] before:h-[200px] sm:before:w-[400px] sm:before:h-[400px] before:bg-primary-300 before:shadow-x before:rounded-full">
-             <img className=" drop-shadow-hero w-full absolute z-10" src={getAssetsFileURL('me_noBg.png')} alt="Jacky Hung" />
-             <p className="hero-title absolute z-10 text-primary-400 font-extrabold left-[-40%] top-[150px] text-6xl sm:left-[-130px] sm:top-[200px] sm:text-8xl font-serif">Front End</p>
+             <img className="hero-img w-full absolute z-10" src={getAssetsFileURL('me_noBg.png')} alt="Jacky Hung" />
+             <p className="hero-title absolute z-10 text-primary-400 font-extrabold  text-6xl sm:text-8xl font-serif">Front End</p>
            </div>
         </div>
     )
