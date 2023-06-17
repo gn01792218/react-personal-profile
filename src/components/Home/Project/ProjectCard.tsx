@@ -58,12 +58,22 @@ function ProjectItem(props: Props) {
                 </section>
                 <section>
                     <Accordion 
-                    toogleId={project.id as string} 
-                    title="專案特色"
-                    // title1="專案技術"
-                    // title2="專案特色" 
-                    // title3="未來規劃"
-                    content={project.description!}/>
+                    accordionId={project.id as string} 
+                    accordionList={[
+                        {
+                            title:'專案特色',
+                            content:project.projectFeatureDescription!
+                        },
+                        {
+                            title:'技術說明',
+                            content:project.projectTechnologyDescription!
+                        },
+                        {
+                            title:'未來規劃',
+                            content:project.projectFutureDescription!
+                        }
+                    ]}
+                    />
                 </section>
             </footer>
         </div>
