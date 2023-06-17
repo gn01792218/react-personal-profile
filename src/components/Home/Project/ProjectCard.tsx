@@ -8,22 +8,22 @@ interface Props {
 function ProjectItem(props: Props) {
     const { project, filterTags } = props
     return (
-        <div className="w-full sm:w-[450px] p-1 flex flex-col justify-around items-center border-2 rounded-3xl">
+        <div className="w-full overflow-hidden sm:w-[450px] p-1 flex flex-col justify-around items-center border-2 rounded-3xl">
             <header className="flex flex-col items-center">
                 <p>{project.title}</p>
-                <ul className="w-[80%] flex flex-wrap justify-between">
+                <ul className="w-[80%] min-h-[50px] flex flex-wrap justify-str items-center">
                     {
                         project.tags?.map(tag => {
                             return (
-                                <li 
+                                <li
                                     key={crypto.randomUUID()}
                                     className={[
-                                    "px-1 cursor-pointer",
-                                    filterTags.map(filterTagItem => {
-                                        filterTagItem.value.toLocaleLowerCase()
-                                        return filterTagItem
-                                    }).some(filterTagItem => filterTagItem.value.toLocaleLowerCase().includes(tag.toLocaleLowerCase()) && filterTagItem.checked) ? "text-yellow-200" : "text-gray-400"
-                                ].join(' ')}>{tag}</li>
+                                        "px-1 cursor-pointer",
+                                        filterTags.map(filterTagItem => {
+                                            filterTagItem.value.toLocaleLowerCase()
+                                            return filterTagItem
+                                        }).some(filterTagItem => filterTagItem.value.toLocaleLowerCase().includes(tag.toLocaleLowerCase()) && filterTagItem.checked) ? "text-yellow-200" : "text-gray-400"
+                                    ].join(' ')}>{tag}</li>
                             )
                         })
                     }
@@ -57,22 +57,23 @@ function ProjectItem(props: Props) {
                     >Go Detail</button>
                 </section>
                 <section>
-                    <Accordion 
-                    accordionId={project.id as string} 
-                    accordionList={[
-                        {
-                            title:'專案特色',
-                            content:project.projectFeatureDescription!
-                        },
-                        {
-                            title:'技術說明',
-                            content:project.projectTechnologyDescription!
-                        },
-                        {
-                            title:'未來規劃',
-                            content:project.projectFutureDescription!
-                        }
-                    ]}
+                    <Accordion
+                        alwaysOpen={true}
+                        accordionId={project.id as string}
+                        accordionList={[
+                            {
+                                title: '專案特色',
+                                content: project.projectFeatureDescription!
+                            },
+                            {
+                                title: '技術說明',
+                                content: project.projectTechnologyDescription!
+                            },
+                            {
+                                title: '未來規劃',
+                                content: project.projectFutureDescription!
+                            }
+                        ]}
                     />
                 </section>
             </footer>

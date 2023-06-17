@@ -5,7 +5,6 @@ import store from './store/index'
 import './index.css'
 import App from './App'
 
-
 //react 18 用法
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 .render(
