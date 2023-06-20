@@ -72,7 +72,7 @@ export const projectList:Partial<Project>[] = [
         title:"WaveDefence - Java塔防自走棋遊戲",
         demoUrl:"https://www.youtube.com/watch?v=l6ddYNVO8Cs",
         imgs:["https://s3cdn.yourator.co/attachments/attachments/000/111/363/original/6c13b7ea4b93cf80a1efb861fbefb1147b6bafec.jpg"],
-        tags:["Java"],
+        tags:["Java","Blender"],
         repoUrl:"https://github.com/gn01792218/Wave-Defence",
         projectFeatureDescription:"由洪夢澤與林于騰使用java共同開發的遊戲，\n融合了塔防、自走棋、即時戰略等元素，開發獨創玩法\n遊戲中玩家可以自行擺陣，並於場中使用戰術指令左右戰局\n**遊戲中素材、遊戲場景由洪夢澤使用Blender3D建模軟體製作",
         projectTechnologyDescription:"- 使用Java製作",

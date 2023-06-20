@@ -12,7 +12,7 @@ function Home() {
     }
     return (
         <div className='text-white'>
-            <HomeNavigator homeNavs={navs} handleActive={handleSetActive}/>
+            {/* <HomeNavigator homeNavs={navs} handleActive={handleSetActive}/> */}
             {(()=>{
                 switch(active){
                     case HomeNav.PROJECTS:
