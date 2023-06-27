@@ -4,7 +4,7 @@ import TheFooter from './components/TheFooter'
 function App() {
   return (
     <div className="app">
-      <TheHero/>
+      <TheHero />
       <section className='min-h-screen'>
         <Routers />
       </section>

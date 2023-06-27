@@ -3,14 +3,15 @@ import { FilterTag, Project } from "../../../types/project"
 import Accordion from "../../Accordion"
 interface Props {
     project: Partial<Project>,
-    filterTags: FilterTag[]
+    filterTags: FilterTag[],
+    expandAllAccordionItem:boolean
 }
 function ProjectItem(props: Props) {
-    const { project, filterTags } = props
+    const { project, filterTags, expandAllAccordionItem } = props
     return (
-        <div className="w-full overflow-hidden sm:w-[450px] p-1 flex flex-col justify-around items-center border-2 rounded-3xl">
+        <div className="project-card flex flex-col w-full overflow-hidden sm:w-[450px] p-1  border-2 rounded-3xl">
             <header className="flex flex-col items-center">
-                <p>{project.title}</p>
+                <p className="when-print-text-black">{project.title}</p>
                 <ul className="w-[80%] min-h-[50px] flex flex-wrap justify-str items-center">
                     {
                         project.tags?.map(tag => {
@@ -28,7 +29,6 @@ function ProjectItem(props: Props) {
                         })
                     }
                 </ul>
-            </header>
             <section>
                 {(() => {
                     if (project.imgs) {
@@ -40,8 +40,9 @@ function ProjectItem(props: Props) {
                     }
                 })()}
             </section>
+            </header>
             <footer className="w-full">
-                <section className="w-full flex justify-around">
+                <section className="when-print-hide w-full flex justify-around">
                     <button className="relative hover:text-acent
                     before:animate-ping before:absolute before:right-[-5px] before:top-[6px] before:w-[10px] before:h-[10px] before:rounded-full before:bg-success
                     after:absolute after:right-[-5px] after:top-[6px] after:w-[10px] after:h-[10px] after:rounded-full after:bg-success
@@ -59,6 +60,7 @@ function ProjectItem(props: Props) {
                 </section>
                 <section>
                     <Accordion
+                        expandAll={expandAllAccordionItem}
                         alwaysOpen={true}
                         accordionId={project.id as string}
                         accordionList={[

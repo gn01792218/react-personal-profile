@@ -8,6 +8,10 @@ interface Props {
     //If you want to change it, and keep the accordion items open until they are explicitly clicked on, 
     //you can delete the data-te-parent from the collapsing div.
     alwaysOpen: boolean, //控制是否保持常開，不因點到別的項目就自動收合
+    //each item's expanded or not is controlled by three key point :
+    //aria-expanded、data-te-collapse-show、css class [hidden]
+    //this option can controll all item's expanded
+    expandAll: boolean,
     accordionId: string,
     accordionList: AccordionItem[]
 }
@@ -16,10 +20,11 @@ import {
     initTE,
 } from "tw-elements";
 function Accordion(props: Props) {
-    const { accordionId, accordionList, alwaysOpen } = props
+    const { accordionId, accordionList, alwaysOpen, expandAll: allItemsExpanded=true } = props
     useEffect(() => {
         initTE({ Collapse });
     }, [])
+    const [ showAll, setShowAll ] = useState(false)
     return (
         <div id={`accordion-${accordionId}`}>
             {
@@ -27,10 +32,10 @@ function Accordion(props: Props) {
                     return (
                         <div
                             key={crypto.randomUUID()}
-                            className="bg-primary-800 dark:bg-neutral-800">
+                            className="when-print-bg-light bg-primary-800 dark:bg-neutral-800">
                             <h2 className="mb-0" id={`flush-heading-${index}-${accordionId}`}>
                                 <button
-                                    className="group relative flex justify-center w-full items-center rounded-none border-0 bg-primary-800 
+                                    className="when-print-text-white group relative flex justify-center w-full items-center rounded-none border-0 bg-primary-800 
                                     px-5 py-4 text-left text-base font-bold transition [overflow-anchor:none] hover:z-[2] focus:z-[3] 
                                     focus:outline-none dark:bg-neutral-800 dark:text-white 
                                     [&:not([data-te-collapse-collapsed])]:bg-primary-300 
@@ -41,7 +46,7 @@ function Accordion(props: Props) {
                                     type="button"
                                     data-te-collapse-init
                                     data-te-collapse-collapsed
-                                    aria-expanded="false"
+                                    aria-expanded={allItemsExpanded}
                                     data-te-target={`#flush-collapse-${index}-${accordionId}`}
                                     aria-controls={`flush-collapse-${index}-${accordionId}`}
                                     >
@@ -67,12 +72,13 @@ function Accordion(props: Props) {
                             </h2>
                             <div
                                 id={`flush-collapse-${index}-${accordionId}`}
-                                className="!visible hidden border-0"
+                                className={['!visible border-0',allItemsExpanded?'':'hidden'].join(' ')}
                                 data-te-collapse-item
+                                data-te-collapse-show = {allItemsExpanded}
                                 aria-labelledby={`flush-heading-${index}-${accordionId}`}
                                 data-te-parent={alwaysOpen ? '' : `#accordion-${accordionId}`}
                             >
-                                <div className="text-primary-100 px-5 py-4">
+                                <div className="when-print-text-black text-primary-100 px-5 py-4">
                                     {
                                         item.content.split('\n').map(line => (<p key={crypto.randomUUID()}>{line.replace(/ /g, '\u00a0')}</p>))
                                     }

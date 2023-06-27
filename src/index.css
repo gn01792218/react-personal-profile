@@ -1,24 +1,37 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-.app{
+
+.app {
     @apply bg-primary-900;
 }
-.hero-img{
+.print-btn{
+    @apply w-[250px] h-[50px] relative top-[-100px] left-[50%] z-10 flex justify-center items-center 
+    text-2xl text-acent-200 font-bold border-4 text-center border-primary-200 hover:text-primary-100 before:w-full before:h-full before:absolute before:z-[-1] before:transition-all before:duration-500 hover:before:bg-primary hover:before:rotate-[15deg] animate-bounce hover:animate-none;
+}
+.print-btn:hover span {
+  font-size: 80px;
+  transform: translate(-10%, -10%) rotate(1turn);
+}
+.hero-img {
     animation-name: heroImg;
     animation-duration: 0.5s;
     animation-fill-mode: forwards;
     animation-timing-function: ease-in-out;
 }
+
 @keyframes heroImg {
- from{
-    @apply opacity-25;
- }to{
-    @apply drop-shadow-hero opacity-100;
- } 
+    from {
+        @apply opacity-25;
+    }
+
+    to {
+        @apply drop-shadow-hero opacity-100;
+    }
 }
-.hero-title{
-    -webkit-text-stroke-width:2px;
+
+.hero-title {
+    -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: black;
     text-shadow: 0px 5px black;
     animation-name: heroTitle;
@@ -26,11 +39,55 @@
     animation-timing-function: ease-in-out;
     @apply left-[-40%] top-[150px] sm:left-[-130px] sm:top-[200px];
 }
+
 @keyframes heroTitle {
-    from{
+    from {
         @apply opacity-0 left-0;
-    }to{
+    }
+
+    to {
         @apply opacity-100;
     }
 }
 
+@media print {
+    @page{
+        size:landscape;
+        /* size:portrait; */
+        /* margin:50cm */
+    }
+    .app {
+        @apply bg-transparent text-primary-900;
+    }
+    .project-card{
+        -webkit-print-color-adjust: exact; 
+        @apply flex-row !w-full;
+    }
+
+    .when-print-hide {
+        display: none;
+    }
+
+    .when-print-block {
+        display: block;
+    }
+    .when-print-flexCol {
+        @apply flex-col
+    }
+    .when-print-items-center{
+        @apply items-center
+    }
+    .when-print-text-white {
+        @apply text-primary-100;
+    }
+
+    .when-print-text-black {
+        @apply text-primary-900;
+    }
+    .when-print-bg-light{
+        @apply bg-primary-100;
+    }
+    .when-print-bg-dark {
+        @apply bg-primary-900;
+    }
+}

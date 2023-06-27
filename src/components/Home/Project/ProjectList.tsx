@@ -3,11 +3,14 @@ import { projectList } from "../../../assets/constant/projectList"
 import { ProjectFilterTag, FilterTag } from "../../../types/project"
 import ProjectCard from "./ProjectCard"
 import ProjectFilterBar from "./ProjectFilterBar"
-
-function ProjectList() {
+interface Props {
+    expandAllCardAccordin:boolean
+}
+function ProjectList(props:Props) {
+    const { expandAllCardAccordin } = props
     const [allChecked, setAllChecked] = useState(true)
     const [filterTags, SetFilterTags] = useState<FilterTag[]>([])
-    
+
     //以下相當於onMount的寫法
     useEffect(() => {
         initCheckGroupFromEnum()
@@ -50,7 +53,7 @@ function ProjectList() {
                 handleAllChecked={handleAllChecked}
                 handleCheckGroupValue={handleCheckGroupValue}
             />
-            <ul className="flex flex-wrap justify-center">
+            <ul className="flex flex-wrap justify-center when-print-flexCol">
                 {
                     projectList.filter(project=>{
                         const checkBoxTags = filterTags.filter(checkObj=>checkObj.checked).map(checkObj=>checkObj.value.toLocaleLowerCase())
@@ -62,6 +65,7 @@ function ProjectList() {
                                 key={project.title}
                             >
                                 <ProjectCard 
+                                expandAllAccordionItem={expandAllCardAccordin}
                                 project={project} 
                                 filterTags={filterTags}
                                 />
