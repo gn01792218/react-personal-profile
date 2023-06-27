@@ -10,7 +10,7 @@ interface Props {
     alwaysOpen: boolean, //控制是否保持常開，不因點到別的項目就自動收合
     //each item's expanded or not is controlled by blow key points :
     //aria-expanded、data-te-collapse-show、data-te-collapse-collapsed、css class [hidden]
-    //and need to also set default toogle by javascript
+    //and need to also set toogle by javascript
     //this option can controll all item's expanded
     defaultExpanded: boolean,
     accordionId: string,
@@ -24,9 +24,11 @@ function Accordion(props: Props) {
     const { accordionId, accordionList, alwaysOpen, defaultExpanded } = props
     useEffect(() => {
         initTE({ Collapse });
-        initToogle()
     }, [])
-    function initToogle() {
+    useEffect(()=>{
+        toogle()
+    },[defaultExpanded])
+    function toogle() {
         //if default expanded is false, toogle must be true
         const collapseElementList = [].slice.call(document.querySelectorAll('[data-te-collapse-item]'))
         collapseElementList.map((collapseEl) => {
