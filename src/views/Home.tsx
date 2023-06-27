@@ -23,7 +23,6 @@ function Home() {
                     <span className="transition-all duration-500">友</span>
                     善列印
                 </div>
-                {/* <button className="animate-bounce hover:animate-none z-10 print-btn when-print-hide hidden sm:block">友善列印</button> */}
             {/* <HomeNavigator homeNavs={navs} handleActive={handleSetActive}/> */}
             {(()=>{
                 switch(active){

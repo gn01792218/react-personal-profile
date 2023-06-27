@@ -6,7 +6,7 @@
     @apply bg-primary-900;
 }
 .print-btn{
-    @apply w-[250px] h-[50px] relative top-[-100px] left-[50%] z-10 flex justify-center items-center 
+    @apply w-[250px] h-[50p] hidden lg:block relative top-[-100px] left-[50%] z-10 flex justify-center items-center 
     text-2xl text-acent-200 font-bold border-4 text-center border-primary-200 hover:text-primary-100 before:w-full before:h-full before:absolute before:z-[-1] before:transition-all before:duration-500 hover:before:bg-primary hover:before:rotate-[15deg] animate-bounce hover:animate-none;
 }
 .print-btn:hover span {
