@@ -52,16 +52,14 @@
 
 @media print {
     @page{
-        size:landscape;
-        /* size:portrait; */
-        /* margin:50cm */
+        size:portrait;
     }
     .app {
         @apply bg-transparent text-primary-900;
     }
     .project-card{
         -webkit-print-color-adjust: exact; 
-        @apply flex-row !w-full;
+        @apply flex-row !w-full border-4 border-primary-900;
     }
 
     .when-print-hide {
