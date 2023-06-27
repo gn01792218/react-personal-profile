@@ -8,10 +8,11 @@ interface Props {
     //If you want to change it, and keep the accordion items open until they are explicitly clicked on, 
     //you can delete the data-te-parent from the collapsing div.
     alwaysOpen: boolean, //控制是否保持常開，不因點到別的項目就自動收合
-    //each item's expanded or not is controlled by three key point :
-    //aria-expanded、data-te-collapse-show、css class [hidden]
+    //each item's expanded or not is controlled by blow key points :
+    //aria-expanded、data-te-collapse-show、data-te-collapse-collapsed、css class [hidden]
+    //and need to also set default toogle by javascript
     //this option can controll all item's expanded
-    expandAll: boolean,
+    defaultExpanded: boolean,
     accordionId: string,
     accordionList: AccordionItem[]
 }
@@ -20,11 +21,20 @@ import {
     initTE,
 } from "tw-elements";
 function Accordion(props: Props) {
-    const { accordionId, accordionList, alwaysOpen, expandAll: allItemsExpanded=true } = props
+    const { accordionId, accordionList, alwaysOpen, defaultExpanded } = props
     useEffect(() => {
         initTE({ Collapse });
+        initToogle()
     }, [])
-    const [ showAll, setShowAll ] = useState(false)
+    function initToogle() {
+        //if default expanded is false, toogle must be true
+        const collapseElementList = [].slice.call(document.querySelectorAll('[data-te-collapse-item]'))
+        collapseElementList.map((collapseEl) => {
+            return new Collapse(collapseEl, {
+                toggle: !defaultExpanded,
+            });
+        });
+    }
     return (
         <div id={`accordion-${accordionId}`}>
             {
@@ -45,11 +55,11 @@ function Accordion(props: Props) {
                                     dark:[&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(75,85,99)]"
                                     type="button"
                                     data-te-collapse-init
-                                    data-te-collapse-collapsed
-                                    aria-expanded={allItemsExpanded}
+                                    data-te-collapse-collapsed={defaultExpanded}
+                                    aria-expanded={defaultExpanded}
                                     data-te-target={`#flush-collapse-${index}-${accordionId}`}
                                     aria-controls={`flush-collapse-${index}-${accordionId}`}
-                                    >
+                                >
                                     {item.title}
                                     <span
                                         className="ml-5 h-5 w-5 shrink-0 rotate-[-180deg] transition-transform duration-200 ease-in-out 
@@ -72,9 +82,9 @@ function Accordion(props: Props) {
                             </h2>
                             <div
                                 id={`flush-collapse-${index}-${accordionId}`}
-                                className={['!visible border-0',allItemsExpanded?'':'hidden'].join(' ')}
+                                className={['!visible border-0', defaultExpanded ? '' : 'hidden'].join(' ')}
                                 data-te-collapse-item
-                                data-te-collapse-show = {allItemsExpanded}
+                                data-te-collapse-show={defaultExpanded}
                                 aria-labelledby={`flush-heading-${index}-${accordionId}`}
                                 data-te-parent={alwaysOpen ? '' : `#accordion-${accordionId}`}
                             >

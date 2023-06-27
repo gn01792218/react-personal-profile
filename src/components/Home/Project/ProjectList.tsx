@@ -4,10 +4,10 @@ import { ProjectFilterTag, FilterTag } from "../../../types/project"
 import ProjectCard from "./ProjectCard"
 import ProjectFilterBar from "./ProjectFilterBar"
 interface Props {
-    expandAllCardAccordin:boolean
+    defaultExpanded:boolean
 }
 function ProjectList(props:Props) {
-    const { expandAllCardAccordin } = props
+    const { defaultExpanded } = props
     const [allChecked, setAllChecked] = useState(true)
     const [filterTags, SetFilterTags] = useState<FilterTag[]>([])
 
@@ -65,7 +65,7 @@ function ProjectList(props:Props) {
                                 key={project.title}
                             >
                                 <ProjectCard 
-                                expandAllAccordionItem={expandAllCardAccordin}
+                                defaultExpanded={defaultExpanded}
                                 project={project} 
                                 filterTags={filterTags}
                                 />

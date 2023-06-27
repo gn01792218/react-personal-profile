@@ -6,14 +6,14 @@ import { HomeNav } from "../types/navigator"
 function Home() {
     const navs = ["Projects", "Skill", "Experience"]
     const [active, setActive] = useState(HomeNav.PROJECTS)
-    const [ allCardExpand, setAllCardExpand ] = useState(false)
+    const [ defaultExpanded, setDefaultExpand ] = useState(false)
     const handleSetActive = (active:HomeNav)=>{
         setActive(active)
     }
     const print = async() => {
-        await setAllCardExpand(true)
+        await setDefaultExpand(true)
         await window.print()
-        setAllCardExpand(false)
+        setDefaultExpand(false)
     }
     return (
         <div className='text-white'>
@@ -27,7 +27,7 @@ function Home() {
             {(()=>{
                 switch(active){
                     case HomeNav.PROJECTS:
-                        return (<ProjectList expandAllCardAccordin={allCardExpand}/>)
+                        return (<ProjectList defaultExpanded={defaultExpanded}/>)
                     case HomeNav.SKILL:
                         return (<Skill/>)
                     case HomeNav.EXPERIENCE:

@@ -4,10 +4,10 @@ import Accordion from "../../Accordion"
 interface Props {
     project: Partial<Project>,
     filterTags: FilterTag[],
-    expandAllAccordionItem:boolean
+    defaultExpanded:boolean
 }
 function ProjectItem(props: Props) {
-    const { project, filterTags, expandAllAccordionItem } = props
+    const { project, filterTags, defaultExpanded: expandAllAccordionItem } = props
     return (
         <div className="project-card flex flex-col w-full overflow-hidden sm:w-[450px] p-1  border-2 rounded-3xl">
             <header className="flex flex-col items-center">
@@ -60,7 +60,7 @@ function ProjectItem(props: Props) {
                 </section>
                 <section>
                     <Accordion
-                        expandAll={expandAllAccordionItem}
+                        defaultExpanded={expandAllAccordionItem}
                         alwaysOpen={true}
                         accordionId={project.id as string}
                         accordionList={[
