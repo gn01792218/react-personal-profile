@@ -20,7 +20,7 @@ function ProjectFilterBar(props: Props) {
                 >
                 </img>
             </section>
-            <section className={isShowFilter ? "block" : "hidden"}>
+            <section className={[isShowFilter ? "block" : "hidden","w-full flex flex-wrap lg:justify-center"].join(" ")}>
                 <div>
                     <div>
                         <input
@@ -38,7 +38,7 @@ function ProjectFilterBar(props: Props) {
                             onChange={() => handleAllChecked()}
                         />
                         <label
-                            className="inline-block pl-[0.15rem] hover:cursor-pointer"
+                            className="inline-block pl-[0.15rem] hover:cursor-pointer mr-5"
                             htmlFor="all"
                         >所有專案</label>
                     </div>
@@ -64,7 +64,7 @@ function ProjectFilterBar(props: Props) {
                                     onChange={() => handleCheckGroupValue(index)}
                                 />
                                 <label
-                                    className="inline-block pl-[0.15rem] hover:cursor-pointer"
+                                    className="inline-block pl-[0.15rem] hover:cursor-pointer mr-5"
                                     htmlFor={checkObj.value}
                                 >{checkObj.value}</label>
                             </div>
