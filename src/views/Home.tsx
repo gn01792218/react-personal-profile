@@ -1,5 +1,6 @@
 import Experience from "../components/Home/Experience"
 import HomeNavigator from "../components/Home/HomeNavigator"
+import GoTopBtn from "../components/GoTopBtn" 
 import ProjectList from "../components/Home/Project/ProjectList"
 import Skill from "../components/Home/Skill"
 import { HomeNav } from "../types/navigator"
@@ -17,6 +18,7 @@ function Home() {
     }
     return (
         <div className='text-white'>
+            <GoTopBtn/>
                 <div className="print-btn"
                  onClick={print}
                 >
