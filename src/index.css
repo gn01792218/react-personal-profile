@@ -19,6 +19,32 @@
     animation-fill-mode: forwards;
     animation-timing-function: ease-in-out;
 }
+.wave{
+    @apply w-full h-[150px] absolute left-0 top-0;
+    animation: wave 4s linear infinite;
+    background: url('./assets/images/wave.svg');
+}
+#wave2{
+    @apply top-[-5px] opacity-50 z-10;
+    animation: wave-revert 4s linear infinite;
+}
+@keyframes wave {
+    0%{
+        background-position-x: 1000px;
+    }
+    100%{
+        background-position-x:0px
+    }
+}
+@keyframes wave-revert {
+    
+    0%{
+        background-position-x: 0px;
+    }
+    100%{
+        background-position-x:1000px
+    }
+}
 
 @keyframes heroImg {
     from {
