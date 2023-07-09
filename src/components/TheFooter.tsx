@@ -1,6 +1,6 @@
 function TheFooter() {
     return (
-        <section className='relative w-full flex justify-center h-[150px] text-white'>
+        <section className='relative w-full flex justify-center h-[100px] text-white'>
             <div className="wave" id="wave1">
             </div>
             <div className="wave" id="wave2"></div>
