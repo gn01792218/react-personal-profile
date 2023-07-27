@@ -24,7 +24,8 @@ function TheHero() {
     }
     const { getAssetsFileURL } = useImageAssets()
     return (
-        <div className="overflow-hidden after:absolute after:top-[100%] after:w-full after:h-[50px] after:bg-gradient-to-b after:from-black after:to-primary-900">
+        <div className="overflow-hidden 
+        ">
             <div className='when-print-hide relative w-full h-screen text-white flex flex-col items-center overflow-hidden'>
                 <section className="z-10">
                     {/* <TheNavigator /> */}
