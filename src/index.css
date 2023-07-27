@@ -1,13 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+*{
+    @apply scroll-smooth;
+}
 .app {
     @apply bg-primary-900;
 }
+.btn-size {
+    @apply w-[250px] h-[50px]
+}
 .print-btn{
-    @apply w-[250px] h-[50p] hidden cursor-pointer lg:block relative top-[-100px] left-[50%] z-10 flex justify-center items-center 
-    text-2xl text-acent-200 font-bold border-4 text-center border-primary-200 hover:text-primary-100 before:w-full before:h-full before:absolute before:z-[-1] before:transition-all before:duration-500 hover:before:bg-primary hover:before:rotate-[15deg] animate-bounce hover:animate-none;
+    @apply btn-size hidden cursor-pointer xl:flex relative top-[-50px] z-10 ml-auto mr-auto rounded-full justify-center items-center 
+    text-2xl text-acent-200 font-bold border-4 text-center border-primary-200 hover:text-primary-100 
+    before:w-full before:h-full before:absolute before:z-[-1] before:rounded-full
+    before:transition-all before:duration-500 hover:before:bg-primary hover:before:rotate-[15deg] animate-bounce hover:animate-none;
 }
 .print-btn:hover span {
   font-size: 80px;
@@ -60,10 +67,6 @@
     -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: black;
     text-shadow: 0px 5px black;
-    animation-name: heroTitle;
-    animation-duration: 0.8s;
-    animation-timing-function: ease-in-out;
-    @apply left-[-40%] top-[150px] sm:left-[-130px] sm:top-[200px];
 }
 
 @keyframes heroTitle {

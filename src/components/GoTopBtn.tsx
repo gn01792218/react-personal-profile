@@ -24,6 +24,7 @@ function GoTopBtn() {
     function backToTop() {
         document.body.scrollTop = 0;
         document.documentElement.scrollTop = 0;
+        console.log('回頂端',document.body.scrollTop,document.documentElement.scrollTop)
     }
     return (
         <button
