@@ -31,7 +31,7 @@ function TheHero() {
                 <img id="bg" className="absolute pointer-events-none top-0 left-0 w-full h-full object-cover" src={getAssetsFileURL('space.webp')}/>
                 <img id="layer1" className="absolute bottom-[-30%] md:bottom-[-10%] xl:bottom-[-20%] pointer-events-none w-[30%] mix-blend-plus-lighter" src={getAssetsFileURL('sun.webp')}/>
                 <img id="layer2" className="absolute bottom-[-60%] xl:bottom-[-160%] pointer-events-none w-full" src={getAssetsFileURL('venus.webp')}/>
-                <button id="project-btn" className="btn-size absolute w-[150px] h-[50px] top-[60%] rounded-full bg-secondary-800 px-2"><a href="#routers-view">個人作品集</a></button>
+                <a id="project-btn" href="#routers-view" className="btn-size absolute w-[150px] h-[50px] top-[60%] flex justify-center items-center text-2xl text-acent-200 font-bold rounded-full bg-secondary-900 px-2">個人作品集</a>
                 <p id="web-title" className="hero-title absolute bottom-[-25%] sm:bottom-[-2%] xl:bottom-[8.5%] text-primary-400 font-extrabold text-5xl sm:text-8xl font-serif">Jacky Houng</p>
                 <img id="layer3" className="absolute pointer-events-none bottom-[-10%] xl:w-full xl:h-[200px]" src={getAssetsFileURL('earth-hide.webp')}/>
             </div>
