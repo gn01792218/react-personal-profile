@@ -18,7 +18,7 @@ function TheHero() {
         bg.style.top = value + 'px'  //滾動時被背景圖會往下移動
         layer1.style.transform = `translateY(${-value*0.7}px)`  //隨滾動量越大，越往上走
         layer2.style.transform = `translateY(${-value*0.5}px)`  //隨滾動量越大越往上走
-        layer3.style.bottom = value*0+'px'  //地球2隨滾動量越大越往上走
+        layer3.style.bottom = -10+'px'  //地球2隨滾動量越大越往上走
         projectBtn.style.transform = `translateY(${-value*0.5}px)`
         webTitle.style.transform = `translateY(${-value*0.5}px)`
     }
@@ -34,7 +34,7 @@ function TheHero() {
                 <img id="layer2" className="absolute bottom-[-60%] xl:bottom-[-160%] pointer-events-none w-full" src={getAssetsFileURL('venus.webp')}/>
                 <a id="project-btn" href="#routers-view" className="btn-size absolute w-[150px] h-[50px] top-[60%] flex justify-center items-center text-2xl text-acent-200 font-bold rounded-full bg-secondary-900 px-2">個人作品集</a>
                 <p id="web-title" className="hero-title absolute bottom-[-25%] sm:bottom-[-2%] xl:bottom-[8.5%] text-primary-400 font-extrabold text-5xl sm:text-8xl font-serif">Jacky Houng</p>
-                <img id="layer3" className="absolute pointer-events-none bottom-[-10%] xl:w-full xl:h-[200px]" src={getAssetsFileURL('earth-hide.webp')}/>
+                <img id="layer3" className="absolute pointer-events-none" src={getAssetsFileURL('earth-hide.webp')}/>
             </div>
                {/* <div className="relative mt-5 top-[50%] w-[150px] sm:top-0 sm:w-[300px] before:absolute before:z-10 before:top-5 before:w-[200px] before:h-[200px] sm:before:w-[400px] sm:before:h-[400px] before:bg-primary-300 before:shadow-x before:rounded-full">
                  <img className="hero-img w-full absolute z-10" src={getAssetsFileURL('me_noBg.webp')} alt="Jacky Hung" />
