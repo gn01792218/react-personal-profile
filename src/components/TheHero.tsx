@@ -35,9 +35,9 @@ function TheHero() {
                 <img id="layer1" className="absolute bottom-0 sm:bottom-[-0%] xl:bottom-[-10%] pointer-events-none w-[30%] mix-blend-plus-lighter" src={getAssetsFileURL('sun.webp')}/>
                 <img id="layer2" className="absolute bottom-[-40%] sm:bottom-[-50%] xl:bottom-[-140%] pointer-events-none w-full" src={getAssetsFileURL('venus.webp')}/>
                 <a id="project-btn" href="#routers-view" 
-                    className="absolute w-[200px] h-[250px] top-[40%] xl:top-[30%] bg-primary-800/[0.5] flex justify-center items-center text-2xl shadow-2xl text-acent-100 font-extrabold rounded-xl
-                    before:absolute before:w-[180px] before:h-[230px] before:border-4 before:border-primary-100
-                    after:absolute after:z-[-1] after:w-0 after:h-0 after:border-t-[200px] after:border-r-[125px] after:border-b-0 after:border-l-[125px] after:border-t-secondary-900/[0.5] after:border-r-transparent after:border-b-transparent after:border-l-transparent
+                    className="absolute w-[250px] h-[100px] top-[40%] xl:top-[30%] bg-primary-800/[0.5] flex justify-center items-center text-2xl shadow-2xl text-acent-100 font-extrabold rounded-
+                    before:absolute before:w-[200px] before:h-[100px] before:border-4 before:border-primary-100 before:animate-ping
+                    after:absolute after:z-[-1] after:w-0 after:h-0 after:animate-pulse after:border-t-[200px] after:border-r-[125px] after:border-b-0 after:border-l-[125px] after:border-t-secondary-900/[0.5] after:border-r-transparent after:border-b-transparent after:border-l-transparent
                 ">
                     個人作品集
                 </a>

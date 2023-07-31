@@ -14,7 +14,7 @@
     @apply btn-size hidden cursor-pointer xl:flex relative top-[-50px] z-10 ml-auto mr-auto rounded-full justify-center items-center 
     text-2xl text-acent-200 font-bold border-2 text-center border-primary-200 hover:text-primary-100 
     before:w-full before:h-full before:absolute before:z-[-1] before:rounded-full
-    before:transition-all before:duration-500 hover:before:bg-primary hover:before:rotate-[15deg] animate-bounce hover:animate-none;
+    before:transition-all before:duration-500 hover:before:bg-primary hover:before:rotate-[15deg];
 }
 .print-btn:hover span {
   font-size: 80px;
