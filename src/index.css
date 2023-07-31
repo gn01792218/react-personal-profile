@@ -62,7 +62,6 @@
         @apply drop-shadow-hero opacity-100;
     }
 }
-
 .hero-title {
     -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: black;
