@@ -28,5 +28,10 @@ export enum ProjectFilterTag{
     TYPSCRIPT = "Typscript",
     JAVA = "Java",
     VITE = "Vite",
-    VUECLI = "Vue CLI"
+    VUECLI = "Vue CLI",
+    NodeJS = "Node.js",
+    EXPRESS = "Express",
+    FRONTEND = "Front-End",
+    BACKEND = "Back-End",
+    GAMEDevelop = "Game Develop"
 }
